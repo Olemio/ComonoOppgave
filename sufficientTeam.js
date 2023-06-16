@@ -11,7 +11,7 @@ function findSufficientTeam(s, p) {
         let mostSharedSkillsIndex = -1; // -1 index = undefined i en array
 
         // finner index fra people med flest matchende elementer fra requiredSkills
-        for (i = 0; i < p.length; i++) {
+        for (let i = 0; i < p.length; i++) {
             let currentSharedSkills = findSharedSkills(s, p[i])
             if (currentSharedSkills > sharedSkills){
                 sharedSkills = currentSharedSkills
@@ -29,6 +29,7 @@ function findSufficientTeam(s, p) {
 
             // sjekker hvilken index som matcher.
             const index = p[mostSharedSkillsIndex].indexOf(s[i]);
+            
 
             if (index !== -1) {
                 // fjern index som matcher
@@ -45,10 +46,10 @@ function findSufficientTeam(s, p) {
     return team;
 };
 // Returnerer/Sjekker hvor mange elementer to lister deler
-function findSharedSkills(array1, array2){
+function findSharedSkills(p, s){
     let count = 0;
-    for (let i = 0; i < array1.length; i++){
-        if (array2.includes(array1[i])){
+    for (let i = 0; i < p.length; i++){
+        if (s.includes(p[i])){
             count++
         }
     }
